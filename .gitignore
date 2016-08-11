@@ -1,9 +1,9 @@
 *~*
 
 */node_modules/*
-/_node_modules/*
-webpack.config.js
+*/_node_modules/*
+*webpack.config.js
 
-/nbproject/
-/nbproject/*
+*/nbproject/
+*/nbproject/*
 *.orig

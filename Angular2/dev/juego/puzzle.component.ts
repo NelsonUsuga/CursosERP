@@ -22,7 +22,10 @@ import {OnInit} from 'angular2/core';
     [ngStyle]="{display: nombre.value === '' ? 'none' : 'block'}"
     >
       <h2>Juego {{ficha1.value == nbrFicha1 && ficha2.value == nbrFicha2 && ficha3.value == nbrFicha3 && ficha4.value == nbrFicha4 ? 'ganado' : 'perdido'}}</h2>
-      <p>Bienvenido {{nombre.value}}, que comience el juego</p>
+      <p>Bienvenido {{nombre.value}}, que comience el juego
+      <br>
+      Instrucciones: adivina la convinación entre dígitos de 1 y 0.
+      </p>
       Ficha 1: <input type="text" #ficha1 (keyup)="0"><br>
       Ficha 2: <input type="text" #ficha2 (keyup)="0"><br>
       Ficha 3: <input type="text" #ficha3 (keyup)="0"><br>
