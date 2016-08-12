@@ -52,4 +52,9 @@ export class PuzzleComponent
     
     console.log(this.nbrFicha1, this.nbrFicha2, this.nbrFicha3, this.nbrFicha4)
   }
+  
+  evaluar()
+  {
+    //return ficha1.value == nbrFicha1 && ficha2.value == nbrFicha2 && ficha3.value == nbrFicha3 && ficha4.value == nbrFicha4;
+  }
 }
