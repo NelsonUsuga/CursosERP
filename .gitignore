@@ -9,3 +9,5 @@
 *.orig
 
 *.log
+
+*/.idea/*

@@ -1,11 +1,17 @@
+/**
+	* Created by Desarrollador 2 on 12/08/2016.
+	*/
 import {Component, EventEmitter} from 'angular2/core';
 
 @Component({
-    selector: 'my-input',
-    template: `
-    <h2>Tu información por favor</h2>
-    
-    <div>
+
+  selector: 'my-confirm',
+  template: `
+  <h2>Tu información a enviar es correcta?</h2>
+  
+  <p>Tu nombre es <span class="highlight">{{misdatos.nombre}}</span> y tu edad es <span class="highlight">{{misdatos.edad}}</span> años, por favor click en 'Confirmar' para cambiar tu información</p>
+  
+  <div>
       <label for="nombre">Tu nombre</label>
       
       <input type="text" id="nombre"
@@ -30,22 +36,21 @@ import {Component, EventEmitter} from 'angular2/core';
     </div>
     
     <div>
-      Válido: {{valido ? 'Si' : 'No'}}
+      Valido: {{valido ? 'Si' : 'No'}}
     </div>
     
-    <button [disabled]="!valido" (click)="enviar()">Enviar</button>
+    <button [disabled]="!valido" (click)="confirmar()">Confirmar</button>
     `,
 
   inputs: ['misdatos'],
-  outputs: ['enviado']
+  outputs: ['confirmado']
 })
 
-export class InputComponent
-{
+export class ConfirmComponent {
   misdatos = {nombre: '', edad: ''};
   completo = false;
   valido = false;
-  enviado = new EventEmitter<{nombre: string, edad: string}>();
+  confirmado = new EventEmitter<{nombre: string, edad: string}>();
 
   onKeyup()
   {
@@ -54,8 +59,8 @@ export class InputComponent
     this.valido = this.misdatos.nombre != '' && /^\d+$/.test(this.misdatos.edad);
   }
 
-  enviar()
+  confirmar()
   {
-    this.enviado.emit(this.misdatos);
+    this.confirmado.emit(this.misdatos);
   }
 }
