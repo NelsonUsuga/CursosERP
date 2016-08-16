@@ -8,22 +8,47 @@ import {Renderer} from "angular2/src/core/render/api";
 
 @Directive(
 	{
-		selector: '[myHighlight]'
+		selector: '[myHighlight]',
+		inputs: ['highlightColor:myHighlight'],
+		host:
+		{
+			'(mouseenter)':'onMouseEnter()',
+			'(mouseleave)':'onMouseLeave()'
+		}
 	}
 )
 
-export class HighlightDirective implements OnInit
+//export class HighlightDirective implements OnInit
+export class HighlightDirective
 {
 	private _defaultColor: string = 'green';
+	highlightColor:string;
 
 	constructor(private _elRef: ElementRef, private _renderer: Renderer){}
 
 
-	ngOnInit():any
+	/*ngOnInit():any
 	{
 		//this._renderer.setElementStyle(this._elRef, 'background-color', this._defaultColor);
-		this._elRef.nativeElement.style.backgroundColor = this._defaultColor;
+		this._elRef.nativeElement.style.backgroundColor = this.highlightColor || this._defaultColor;
+	}*/
+
+	onMouseEnter()
+	{
+		this.highlight(this.highlightColor || this._defaultColor);
 	}
+
+	onMouseLeave()
+	{
+		this.highlight(null);
+	}
+
+	highlight(color:string)
+	{
+		this._elRef.nativeElement.style.backgroundColor = color;
+	}
+
+
 }
 
 /*

@@ -9,7 +9,7 @@ import {HighlightDirective} from './highlight.directive';
 
 selector: 'my-attributes-directives',
 template: `
-	<div myHighlight>
+	<div [myHighlight]="'red'">
 		Resaltame
 	</div>
 	<br><br>
