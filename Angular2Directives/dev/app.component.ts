@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {AttributeDirectives} from './attribute-directive';
+import {AttributeDirectives} from './attribute.directive';
 import {StructuralDirectives} from "./structural.directive";
 
 @Component({
